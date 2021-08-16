@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>RK Store</title>
+    <link rel="shortcut icon" href="/static/images/my_images/dota.png" />
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/static/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="/static/css/plugins/nouislider/nouislider.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+
+            <div class="header-middle sticky-header">
+                <div class="container">
+                    <div class="header-left">
+                        <a href="{% url 'home' %}" class="logo">
+                            <img src="/static/images/my_images/dota.png" width="105" height="25">
+                        </a>
+
+                        <nav class="main-nav">
+                            <ul class="menu sf-arrows">
+                                <li class="megamenu-container active">
+                                    <a href="{% url 'home' %}">Home</a>
+                                </li>
+                                
+                                
+                            </ul><!-- End .menu -->
+                        </nav><!-- End .main-nav -->
+                    </div><!-- End .header-left -->
+
+                    <div class="header-right">
+					 <div class="select-country">
+						<select disabled>
+							<option value="AU">Australia</option>
+							
+						</select>
+                        </div><!-- End .header-search -->   
+						{% load store_tags %}
+                        <div class="dropdown cart-dropdown">
+                            <a href="{% url 'cart' %}" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                <i class="icon-shopping-cart"></i>
+                                <span class="cart-count">{{len_cart}}</span>
+                            </a>
+							{%if len_cart %}
+                            <div class="dropdown-menu dropdown-menu-right">
+							
+                                <div class="dropdown-cart-products">
+									{%for item in cart %}
+									
+                                    <div class="product">
+                                        <div class="product-cart-details">
+                                            <h4 class="product-title">
+                                                <span>{{item.product_name}}</span>
+                                            </h4>
+
+                                            <span class="cart-product-info">
+                                                <span class="cart-product-qty">{{item.qty}}</span>
+                                                x ${{item.product_price}}
+                                            </span>
+                                        </div><!-- End .product-cart-details -->
+
+                                        <figure class="product-image-container">
+                                            <span class="product-image">
+                                                <img src="/static/images/my_images/{{item.product_id}}.jpg" alt="product">
+                                            </span>
+                                        </figure>
+                                        <a href="{% url 'remove_fromCart' item.product_id%}" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+                                    </div><!-- End .product -->
+										
+										{% endfor %}
+                                </div><!-- End .cart-product -->
+							
+                                <div class="dropdown-cart-total">
+                                    <span>Total</span>
+
+                                    <span class="cart-total-price">{{total_cart_price}}</span>
+                                </div><!-- End .dropdown-cart-total -->
+
+                                <div class="dropdown-cart-action">
+                                    <a href="{% url 'cart' %}" class="btn btn-primary">View Cart</a>
+                                    <a href="{% url 'checkout' %}" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                                </div><!-- End .dropdown-cart-total -->
+                            </div><!-- End .dropdown-menu -->
+                        </div><!-- End .cart-dropdown -->
+						{%endif%}
+                    </div><!-- End .header-right -->
+                </div><!-- End .container -->
+            </div><!-- End .header-middle -->
+        </header><!-- End .header -->
+		{% block content %} {% endblock %}
+		<footer class="footer">       	
+
+	        <div class="footer-bottom">
+	        	<div class="container">
+	        		<p class="footer-copyright">Copyright © 2021 RK Store. All Rights Reserved.</p><!-- End .footer-copyright -->
+	        		<figure class="footer-payments">
+	        			<img src="/static/images/payments.png" alt="Payment methods" width="272" height="20">
+	        		</figure><!-- End .footer-payments -->
+	        	</div><!-- End .container -->
+	        </div><!-- End .footer-bottom -->
+        </footer><!-- End .footer -->
+    </div><!-- End .page-wrapper -->
+  
+
+    <!-- Plugins JS File -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/jquery.hoverIntent.min.js"></script>
+    <script src="/static/js/jquery.waypoints.min.js"></script>
+    <script src="/static/js/superfish.min.js"></script>
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/wNumb.js"></script>
+    <script src="/static/js/bootstrap-input-spinner.js"></script>
+    <script src="/static/js/jquery.magnific-popup.min.js"></script>
+    <script src="/static/js/nouislider.min.js"></script>
+    <!-- Main JS File -->
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>

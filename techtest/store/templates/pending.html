@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- molla/coming-soon.html  22 Nov 2019 10:04:05 GMT -->
+<head>
+    <title>Payment Successful</title>
+    <link rel="shortcut icon" href="/static/images/my_images/dota.png" />
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/static/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="/static/css/plugins/nouislider/nouislider.css">
+</head>
+
+<body>
+    <div class="soon">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="soon-content text-center">
+                        <div class="soon-content-wrapper">
+                            <img src="/static/images/my_images/payment-pending.jpg" alt="Logo" class="soon-logo mx-auto">
+							<h2 class="soon-title">The Payment is Pending</h2><!-- End .soon-title -->
+							<h4 class="soon-title">Payment Reference ID: {{request.session.pspReference}}, Status: {{request.session.resultCode}} </h4><!-- End .soon-title -->
+                            <h3 class="soon-title">Your order will be confirmed once the payment is successful</h3><!-- End .soon-title -->
+                            <div><span>  <p> You will be redirected to the main website <span id="countdowntimer">10 </span> Seconds</p></span></div><!-- End .coming-countdown -->
+							<div><span>  <p> If not directed automatically, please click <a href="{% url 'clear-cart' %}">here</a></div><!-- End .coming-countdown -->
+                            <hr class="mt-2 mb-3 mt-md-3">
+                        </div><!-- End .soon-content-wrapper -->
+                    </div><!-- End .soon-content -->
+                </div><!-- End .col-md-9 col-lg-8 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .soon -->
+    <!-- Plugins JS File -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/jquery.plugin.min.js"></script>
+    <script src="/static/js/jquery.countdown.min.js"></script>
+    <!-- Main JS File -->
+    <script src="/static/js/main.js"></script>
+   
+
+<script type="text/javascript">
+    var timeleft = 10;
+    var downloadTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    if(timeleft <= 0){
+        clearInterval(downloadTimer);
+		window.location.href = 'http://127.0.0.1:5000/home/clear-cart/';
+		}		
+    },1000);
+</script>
+</body>
+
+
+<!-- molla/coming-soon.html  22 Nov 2019 10:04:05 GMT -->
+</html>

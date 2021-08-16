@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- molla/coming-soon.html  22 Nov 2019 10:04:05 GMT -->
+<head>
+    <title>Payment Declined</title>
+    <link rel="shortcut icon" href="/static/images/my_images/dota.png" />
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/static/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="/static/css/plugins/nouislider/nouislider.css">
+</head>
+
+<body>
+    <div class="soon">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="soon-content text-center">
+                        <div class="soon-content-wrapper">
+                            <img src="/static/images/my_images/payment-fail.png" alt="Logo" class="soon-logo mx-auto">
+							<h2 class="soon-title">Payment failed</h2><!-- End .soon-title -->
+							<div><span>Status: {{request.session.resultCode}} - {{request.session.refusalReason}}, Service Provider Refernce ID: {{request.session.pspReference}} </div>
+							<br>
+							<div class="dropdown-cart-action">
+                                    <a href="{% url 'checkout' %}" class="btn btn-primary" style="background-color: red;">Try again</a>
+                                    <a href="{% url 'home' %}" class="btn btn-outline-primary-2" style="color: red; border-color: red;"><span>Continue shopping</span><i class="icon-long-arrow-right"></i></a>
+                                </div>
+                            <hr class="mt-2 mb-3 mt-md-3">
+                        </div><!-- End .soon-content-wrapper -->
+                    </div><!-- End .soon-content -->
+                </div><!-- End .col-md-9 col-lg-8 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .soon -->
+    <!-- Plugins JS File -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/jquery.plugin.min.js"></script>
+    <script src="/static/js/jquery.countdown.min.js"></script>
+    <!-- Main JS File -->
+    <script src="/static/js/main.js"></script>
+   
+
+
+</body>
+
+
+<!-- molla/coming-soon.html  22 Nov 2019 10:04:05 GMT -->
+</html>
