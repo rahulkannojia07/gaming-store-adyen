@@ -1,3 +1,3 @@
-web: gunicorn techtest.wsgi:application --log-file - --log-level debug
+web: gunicorn techtest.wsgi
 heroku ps:scale web=1
 python manage.py migrate
